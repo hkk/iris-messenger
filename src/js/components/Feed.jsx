@@ -630,7 +630,7 @@ class Feed extends Component {
             </div>
           ) : null}
           {this.props.index !== 'notifications' && this.state.settingsOpen && this.renderSettings()}
-          {this.props.index !== 'notifications' && this.renderFeedTypeSelector()}
+          {/*this.props.index !== 'notifications' && this.renderFeedTypeSelector()*/}
           {messages.length === 0 && (
             <div className="msg">
               <div className="msg-content notification-msg">

@@ -12,6 +12,9 @@ import SafeImg from './SafeImg';
 import SearchBox from './SearchBox';
 import Torrent from './Torrent';
 
+import Key from '../nostr/Key';
+import Identicon from './Identicon';
+
 const mentionRegex = /\B@[\u00BF-\u1FFF\u2C00-\uD7FF\w]*$/;
 
 class FeedMessageForm extends MessageForm {
@@ -194,10 +197,21 @@ class FeedMessageForm extends MessageForm {
   }
 
   render() {
+    const key = Key.getPubKey();
+    const npub = Key.toNostrBech32Address(key, 'npub');
     const textareaPlaceholder =
       this.props.placeholder ||
       (this.props.index === 'media' ? 'type_a_message_or_paste_a_magnet_link' : 'type_a_message');
-    return html`<form
+    return html`<div class="message-form-container">
+    <div class="msg-identicon">
+      <a href=${Helpers.getMyProfileLink()}>
+        <${Identicon}
+          str=${npub}
+          width="48"
+        />
+      </a>
+    </div>
+    <form
       autocomplete="off"
       class="message-form ${this.props.class || ''} public"
       onSubmit=${(e) => this.onMsgFormSubmit(e)}
@@ -353,7 +367,8 @@ class FeedMessageForm extends MessageForm {
           return 'unknown attachment type';
         })}
       </div>
-    </form>`;
+    </form>
+    </div>`;
   }
 }
 
