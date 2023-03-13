@@ -19,15 +19,22 @@ class Dropdown extends Component<Props, State> {
     this.setState({ open });
   };
 
+  closeDropdown = (e: MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    this.setState({ open: false });
+  };
+
   render() {
     return (
       <div
         class="dropdown"
         onClick={this.toggle}
-        onMouseEnter={(e) => this.toggle(e, true)}
-        onMouseLeave={(e) => this.toggle(e, false)}
+        //onMouseEnter={(e) => this.toggle(e, true)}
+        //onMouseLeave={(e) => this.toggle(e, false)}
       >
         <div class="dropbtn">…</div>
+        {this.state.open ? <div class="dropdown-overlay" onClick={this.closeDropdown}></div> : ''}
         {this.state.open ? <div class="dropdown-content">{this.props.children}</div> : ''}
       </div>
     );

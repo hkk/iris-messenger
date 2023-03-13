@@ -154,7 +154,8 @@ class Main extends Component<Props, ReactState> {
           <div className="overlay" onClick={() => this.onClickOverlay()}></div>
           <div className="view-area">
             <Router onChange={(e) => this.handleRoute(e)}>
-              <FeedList path="/" />
+              <Feed path="/" index="follows" />
+              <FeedList path="/feeds" />
               <Feed path="/following" index="follows" />
               <Feed path="/global" index="everyone" />
               <Feed path="/search/:term?/:type?" />

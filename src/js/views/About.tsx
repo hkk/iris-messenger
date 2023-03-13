@@ -15,6 +15,7 @@ class About extends Component {
         <Header />
         <div class="main-view" id="settings">
           <div class="centered-container mobile-padding15">
+            <div>
             <h2>{t('about')}</h2>
             <p>Iris is like the social networking apps we're used to, but better:</p>
             <ul>
@@ -111,6 +112,7 @@ class About extends Component {
               <a href="https://github.com/irislib/iris-messenger">Github</a>.
             </p>
             <br />
+            </div>
           </div>
         </div>
       </>

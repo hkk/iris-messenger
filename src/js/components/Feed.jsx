@@ -613,7 +613,7 @@ class Feed extends Component {
               <div className="msg-content notification-msg">
                 <div style="display:flex;flex-direction: row;width:100%;align-items:center;text-align:center;">
                   {isGeneralFeed && (
-                    <a href="/" style="padding-right: 10px;color:var(--text-color);">
+                    <a href="/feeds" style="padding-right: 10px;color:var(--text-color);">
                       {Icons.backArrow}
                     </a>
                   )}
@@ -631,7 +631,7 @@ class Feed extends Component {
             </div>
           ) : null}
           {this.props.index !== 'notifications' && this.state.settingsOpen && this.renderSettings()}
-          {this.props.index !== 'notifications' && this.renderFeedTypeSelector()}
+          {/*this.props.index !== 'notifications' && this.renderFeedTypeSelector()*/}
           {messages.length === 0 && (
             <div className="msg">
               <div className="msg-content notification-msg">
