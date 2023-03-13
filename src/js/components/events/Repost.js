@@ -25,7 +25,7 @@ export default function Repost(props) {
   return html`
     <div class="msg">
       <div class="msg-content" style="padding: 12px 0 0 0;">
-        <div style="display: flex; align-items: center; flex-basis: 100%; margin-left: 15px">
+        <div style="display: flex; align-items: center; flex-basis: 100%; margin-left: 46px">
           <small class="reposted">
             <i> ${Icons.repost} </i>
             <a href="/${Key.toNostrBech32Address(props.event.pubkey, 'npub')}">

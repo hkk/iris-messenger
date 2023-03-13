@@ -69,6 +69,7 @@ export default {
   "none": "なし",
   "nostr_extension_login": "ブラウザ拡張機能でログイン",
   "note_to_self": "自分用のノート",
+  "notifications": "通知",
   "now": "たった今",
   "online": "オンライン",
   "otherwise_cant_log_in_again": "そうでないと、このアカウントにログインできなくなります。",

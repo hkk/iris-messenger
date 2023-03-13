@@ -11,7 +11,9 @@ import { translate as t } from '../translations/Translation';
 const APPLICATIONS = [
   // TODO: move editable shortcuts to localState gun
   { url: '/', text: 'feeds', icon: Icons.feed },
+  { url: '/notifications', text: 'notifications', icon: Icons.heartEmpty },
   { url: '/chat', text: 'messages', icon: Icons.chat },
+  { url: '/profile', text: 'profile', icon: Icons.user },
   { url: '/settings', text: 'settings', icon: Icons.settings },
   { url: '/about', text: 'about', icon: Icons.info },
 ];
@@ -51,6 +53,7 @@ export default class Menu extends Component {
 
   render() {
     return html`
+    <div class="application-container">
       <div class="application-list">
         ${Helpers.isElectron
           ? html`<div class="electron-padding" />`
@@ -66,6 +69,9 @@ export default class Menu extends Component {
             let isActive = this.state.activeRoute.startsWith(a.url.slice(1));
             if (a.url === '/') {
               isActive = this.state.activeRoute.length <= 1;
+            }
+            if (a.text === 'profile') {
+              a.url = Helpers.getMyProfileLink();
             }
             return html` <a
               onClick=${(e) => this.menuLinkClicked(e, a)}
@@ -84,6 +90,7 @@ export default class Menu extends Component {
           }
         })}
       </div>
+    </div>
     `;
   }
 }
