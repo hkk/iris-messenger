@@ -215,7 +215,7 @@ class Header extends Component {
             </a> -->
             `
           : ''}-->
-        <${Link}
+        <!--<${Link}
           activeClassName="active"
           href="/notifications"
           class="notifications-button mobile-search-hidden ${this.state.showMobileSearch
@@ -232,16 +232,16 @@ class Header extends Component {
                 >
               `
             : ''}
-        <//>
+        <//>-->
 
-        <${Link}
+        <!--<${Link}
           activeClassName="active"
           href="/${npub}"
           onClick=${() => localState.get('scrollUp').put(true)}
           class="hidden-xs my-profile"
         >
           <${Identicon} str=${npub} width="34" />
-        <//>
+        <//>-->
       </div>
     </header>`;
   }

@@ -673,7 +673,7 @@ class Note extends Component {
                   <a href=${`/${this.props.event.pubkey}`}>
                     <${Identicon}
                       str=${Key.toNostrBech32Address(this.props.event.pubkey, 'npub')}
-                      width="40"
+                      width="48"
                     />
                   </a>
                 `
@@ -712,13 +712,13 @@ class Note extends Component {
                   />
                 `
               : ''}
-            ${this.props.meta.attachments && this.renderAttachments()}
             ${s.text?.length > 0
               ? html`<div class="text ${s.emojiOnly && 'emoji-only'}">
                   ${(!this.state.showMore && this.state.shortContent) || this.state.content}
                   ${s.translatedText ? html`<p><i>${s.translatedText}</i></p>` : ''}
                 </div> `
               : ''}
+            ${this.props.meta.attachments && this.renderAttachments()}
             ${!this.props.standalone && this.state.shortContent
               ? html`
                   <a
@@ -736,9 +736,9 @@ class Note extends Component {
             ${s.showReposts ? this.renderReposts() : ''}
             ${s.lightning && s.showZapModal && this.renderZapModal()}
             ${s.showImageModal && this.renderImageModal()}
-            ${this.props.standalone || s.showReplyForm ? this.renderReplyForm() : ''}
           </div>
         </div>
+        ${this.props.standalone || s.showReplyForm ? this.renderReplyForm() : ''}
       </div>
       ${(this.props.showReplies || s.showReplyForm) && s.sortedReplies?.length
         ? this.renderReplies()

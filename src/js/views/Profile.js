@@ -322,6 +322,7 @@ class Profile extends View {
       this.state.profile?.about || ''
     }`;
     return html`
+      <div class="content">
       ${this.state.banner
         ? html`
             <div
@@ -331,8 +332,8 @@ class Profile extends View {
   ), url(${this.state.banner})"
             ></div>
           `
-        : ''}
-      <div class="content">
+        : html`<div class="profile-banner"></div>`
+      }
         <${Helmet}>
           <title>${title}</title>
           <meta name="description" content=${description} />
