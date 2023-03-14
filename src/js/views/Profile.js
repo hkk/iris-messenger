@@ -17,6 +17,7 @@ import ProfilePicture from '../components/ProfilePicture';
 import QrCode from '../components/QrCode';
 import Helpers from '../Helpers';
 import localState from '../LocalState';
+import Events from '../nostr/Events';
 import Key from '../nostr/Key';
 import Relays from '../nostr/Relays';
 import SocialNetwork from '../nostr/SocialNetwork';
@@ -110,10 +111,16 @@ class Profile extends View {
       />`;
     }
     let rawDataJson = [];
-    const profileEvent = SocialNetwork.profileEventByUser.get(this.state.hexPub);
-    const followEvent = SocialNetwork.followEventByUser.get(this.state.hexPub);
-    profileEvent && rawDataJson.push(profileEvent);
-    followEvent && rawDataJson.push(followEvent);
+    const profileEvent = Events.db.findOne({ kind: 0, pubkey: this.state.hexPub });
+    const followEvent = Events.db.findOne({ kind: 3, pubkey: this.state.hexPub });
+    if (profileEvent) {
+      delete profileEvent.$loki;
+      rawDataJson.push(profileEvent);
+    }
+    if (followEvent) {
+      delete followEvent.$loki;
+      rawDataJson.push(followEvent);
+    }
     rawDataJson = JSON.stringify(rawDataJson, null, 2);
     return html`
       <div class="profile-top" key="${this.state.hexPub}details">

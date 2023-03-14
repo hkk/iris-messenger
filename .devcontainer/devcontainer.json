@@ -1,0 +1,6 @@
+{
+  "name": "Docker Compose",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "iris-messenger",
+  "workspaceFolder": "/iris-messenger"
+}

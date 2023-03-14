@@ -156,11 +156,14 @@ const Events = {
     this.insert(event);
   },
   handleFollow(event: Event) {
-    const existing = SocialNetwork.followEventByUser.get(event.pubkey);
+    const existing = Events.db.findOne({ kind: 3, pubkey: event.pubkey });
     if (existing && existing.created_at >= event.created_at) {
       return;
     }
-    SocialNetwork.followEventByUser.set(event.pubkey, event);
+    if (existing) {
+      this.db.findAndRemove({ kind: 3, pubkey: event.pubkey });
+    }
+    this.insert(event);
     const myPub = Key.getPubKey();
 
     if (event.pubkey === myPub || SocialNetwork.followedByUser.get(myPub)?.has(event.pubkey)) {
@@ -258,6 +261,9 @@ const Events = {
       const existing = SocialNetwork.profiles.get(event.pubkey);
       if (existing?.created_at >= event.created_at) {
         return false;
+      }
+      if (existing) {
+        this.db.findAndRemove({ pubkey: event.pubkey, kind: 0 });
       }
       this.insert(event);
       const profile = JSON.parse(event.content);
@@ -437,7 +443,7 @@ const Events = {
         this.handleDelete(event);
         break;
       case 3:
-        if (SocialNetwork.followEventByUser.get(event.pubkey)?.created_at >= event.created_at) {
+        if (Events.db.findOne({ kind: 3, pubkey: event.pubkey })?.created_at >= event.created_at) {
           return false;
         }
         this.maybeAddNotification(event);
@@ -470,7 +476,7 @@ const Events = {
     if (
       PubSub.subscribedProfiles.has(event.pubkey) &&
       SocialNetwork.blockedUsers.has(event.pubkey) &&
-      SocialNetwork.followEventByUser.has(event.pubkey)
+      Events.db.findOne({ kind: 3, pubkey: event.pubkey })
     ) {
       PubSub.subscribedProfiles.delete(event.pubkey);
     }
