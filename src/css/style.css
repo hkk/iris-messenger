@@ -29,6 +29,7 @@
   --msg-border: none;
   --msg-border-color: #292b31;
   --msg-content-background: #15181c;
+  --msg-content-border: 1px solid rgb(47, 51, 54);
   --msg-form-button-color: #1d9bf0;
   --nav-border-bottom: 1px solid #222526;
   --nav-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8);
@@ -84,6 +85,7 @@
   --msg-border: none;
   --msg-border-color: #e5e5e5;
   --msg-content-background: #ffffff;
+  --msg-content-border: 1px solid #e5e5e5;
   --msg-form-button-color: #1d9bf0;
   --nav-border-bottom: 1px solid #e5e5e5;
   --nav-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8);
@@ -308,7 +310,7 @@ textarea.new-msg::placeholder {
   outline: none;
   margin-bottom: 0;
   border-radius: 15px;
-  border: 1px solid rgb(47, 51, 54);
+  border: var(--msg-content-border);
   margin-top: 0;
   height: 400px;
   min-width: min(100%, 225px);
@@ -342,7 +344,7 @@ textarea.new-msg::placeholder {
 }
 
 .msg-content .msg-content {
-  border: 1px solid rgb(47, 51, 54);
+  border: var(--msg-content-border);
   border-radius: 15px;
 }
 
@@ -939,7 +941,7 @@ header.footer .header-content {
 }
 
 .public-messages-view .msg.inline-quote .msg-content {
-  border: 1px solid rgb(47, 51, 54);
+  border: var(--msg-content-border);
   border-radius: 15px;
   margin-top: 0;
 }
@@ -1298,7 +1300,7 @@ a.msg {
   max-height: none;
   object-fit: cover;
   border-radius: 15px;
-  border: 1px solid rgb(47, 51, 54);
+  border: var(--msg-content-border);
   overflow: hidden;
 }
 
