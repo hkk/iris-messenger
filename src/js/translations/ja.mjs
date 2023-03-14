@@ -45,6 +45,7 @@ export default {
   "global_feed": "グローバル",
   "group_name": "グループ名",
   "have_someones_invite_link": "招待リンクを持っていますか？",
+  "home": "ホーム",
   "install_lightning_wallet_prompt": "Lightningウォレットをインストールしてください。例えば、getalby.com (デスクトップ) または walletofsatoshi.com (モバイル) です。",
   "language": "言語",
   "last_active": "最後のアクティブ",

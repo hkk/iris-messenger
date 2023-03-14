@@ -10,7 +10,7 @@ import { translate as t } from '../translations/Translation';
 
 const APPLICATIONS = [
   // TODO: move editable shortcuts to localState gun
-  { url: '/', text: 'feeds', icon: Icons.feed },
+  { url: '/', text: 'home', icon: Icons.home },
   { url: '/notifications', text: 'notifications', icon: Icons.heartEmpty },
   { url: '/chat', text: 'messages', icon: Icons.chat },
   { url: '/profile', text: 'profile', icon: Icons.user },

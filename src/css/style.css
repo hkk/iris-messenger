@@ -13,6 +13,7 @@
   --day-separator-bg: rgba(30, 32, 37, 0.85);
   --day-separator-color: rgba(255, 255, 255, 0.88);
   --dropdown-bg: rgba(0, 0, 0, 1);
+  --dropdown-button-hover: rgba(255, 255, 255, 0.1);
   --emoji-picker-bg: #35383f;
   --emoji-picker-border-color: #1f2125;
   --emoji-picker-color: #fff;
@@ -49,6 +50,7 @@
   --text-time: rgba(255, 255, 255, 0.45);
   --warning-background: #fe5493;
   --zebra-stripe-bg: #101214;
+  --profile-banner-bg: #3b3b3b;
 }
 
 [data-theme="light"] {
@@ -66,6 +68,7 @@
   --day-separator-bg: rgba(255, 255, 255, 0.85);
   --day-separator-color: rgba(0, 0, 0, 0.88);
   --dropdown-bg: rgba(255, 255, 255, 1);
+  --dropdown-button-hover: rgba(124, 124, 124, 0.1);
   --emoji-picker-bg: #f5f5f5;
   --emoji-picker-border-color: #e5e5e5;
   --emoji-picker-color: #000000;
@@ -76,7 +79,7 @@
   --input-placeholder: #666;
   --input-text: #000000;
   --login-background: #ffffff;
-  --main-color: #f5f5f5;
+  --main-color: #ffffff;
   --menu-bg: #ffffff;
   --msg-border: none;
   --msg-border-color: #e5e5e5;
@@ -100,6 +103,7 @@
   --text-time: rgba(0, 0, 0, 0.45);
   --warning-background: #fe5493;
   --zebra-stripe-bg: #f5f5f5;
+  --profile-banner-bg: #dddddd;
 }
 
 * {
@@ -1108,6 +1112,10 @@ header.footer .header-content {
 }
 
 @media (max-width: 1268px) {
+  .application-container {
+    width: 20%;
+  }
+
   .application-list {
     width: 78px;
     margin-left: 0;
@@ -1141,6 +1149,11 @@ header.footer .header-content {
 @media (max-width: 625px) {
   .mobile-padding15 {
     padding: 0 15px;
+  }
+
+  .application-container {
+    width: 0;
+    z-index: 2;
   }
 
   .application-list {
@@ -1436,7 +1449,8 @@ a.msg {
 }
 
 .dropdown-content button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--dropdown-button-hover);
+  color: var(--text-color);
 }
 
 /* Links inside the dropdown */
@@ -1462,7 +1476,7 @@ a.msg {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--dropdown-button-hover);
 }
 
 .dropdown-overlay {
@@ -2239,7 +2253,7 @@ small,
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #292b31;
+  background-color: var(--profile-banner-bg);
   /*margin-top: -15px;
   margin-left: -15px;
   margin-right: -15px;*/
@@ -2382,6 +2396,7 @@ form.public {
 
 .profile-header-stuff {
   padding-left: 15px;
+  padding-right: 15px;
   flex: 2;
 }
 
