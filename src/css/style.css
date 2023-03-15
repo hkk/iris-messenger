@@ -1065,10 +1065,6 @@ header.footer .header-content {
   margin-top: 30px;
 }
 
-.menu-new-post button.djMHin {
-  width: 100%;
-}
-
 .menu-new-post .msg-content {
   background-color: var(--msg-content-background);
   border-radius: 8px;

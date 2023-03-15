@@ -111,7 +111,7 @@ export default class Menu extends Component {
           }
         })}
         <div class="hidden-xs menu-new-post">
-          <${Button}
+          <${Button} width="100%"
             onClick=${() => this.setState({ showNewPostModal: !this.state.showNewPostModal })}
           >
             <span class="icon">${Icons.post}</span>
