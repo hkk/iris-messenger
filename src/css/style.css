@@ -366,7 +366,7 @@ textarea.new-msg::placeholder {
 }
 
 .application-list a.logo {
-  padding: 15px 30px;
+  padding: 15px 15px;
 }
 
 .nav .connected-peers small {
@@ -1060,8 +1060,27 @@ header.footer .header-content {
 }
 
 .menu-new-post {
-  margin-left: 30px;
+  /*margin-left: 30px;*/
+  margin-right: 30px;
   margin-top: 30px;
+}
+
+.menu-new-post button.djMHin {
+  width: 100%;
+}
+
+.menu-new-post .msg-content {
+  background-color: var(--msg-content-background);
+  border-radius: 8px;
+}
+
+.menu-new-post .msg-content .message-form-container {
+  border-bottom: none;
+  padding: 0;
+}
+
+.menu-new-post .msg-content .message-form-container textarea.new-msg {
+  background-color: var(--msg-content-background);
 }
 
 .application-list {
@@ -1091,7 +1110,7 @@ header.footer .header-content {
 }
 
 .application-list a {
-  padding: 0 15px;
+  padding: 0;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -1118,7 +1137,13 @@ header.footer .header-content {
   }
 
   .menu-new-post {
-    margin-left: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .menu-new-post button.djMHin .icon {
+    padding: 0 3px;
+    top: 3px;
   }
 }
 
