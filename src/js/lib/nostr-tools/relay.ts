@@ -292,7 +292,7 @@ export function relayInit(url: string, alreadyHaveEvent?: (id: string) => boolea
     },
     connect,
     close(): Promise<void> {
-      ws.close()
+      ws?.close()
       return new Promise<void>(resolve => {
         resolveClose = resolve
       })
