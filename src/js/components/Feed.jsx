@@ -10,6 +10,7 @@ import Events from '../nostr/Events';
 import Key from '../nostr/Key';
 import PubSub from '../nostr/PubSub';
 import SocialNetwork from '../nostr/SocialNetwork';
+import Relays from '../nostr/Relays';
 import { translate as t } from '../translations/Translation';
 
 import Button from './buttons/Button';
@@ -215,7 +216,7 @@ class Feed extends Component {
       } else {
         this.unsub = this.getMessages();
       }
-    }, 0);
+    }, Relays.getConnectedRelayCount() > 0 ? 0 : 1000);
   }
 
   sort(a, b) {
