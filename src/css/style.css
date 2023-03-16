@@ -1406,6 +1406,11 @@ a.msg {
   margin-left: 8px;
 }
 
+.public-messages-view .msg .time .tooltip .tooltiptext {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
 .msg-content .msg-content {
   border: 0;
 }
@@ -1537,7 +1542,12 @@ a.msg {
 
 .msg .emoji-only {
   font-size: 3em;
-  text-align: center;
+  /*text-align: center;*/
+  margin: 20px 0;
+}
+
+.msg .emoji-only .emoji {
+  font-size: 2em;
 }
 
 a.msgSenderName {
