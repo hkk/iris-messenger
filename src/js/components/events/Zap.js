@@ -51,20 +51,18 @@ export default function Zap(props) {
   const userLink = `/${zappingUser}`;
   return html`
     <div class="msg">
-      <div class="msg-content" onClick=${(e) => messageClicked(e, zappedId)}>
-        <div>
-          <div style="display: flex; align-items: center;">
-            <i class="zap-btn zapped" style="margin-right: 15px;"> ${lightningIcon} </i>
-            <div>
-              <a href=${userLink} style="margin-right: 5px;">
-                <${Name} pub=${zappingUser} userNameOnly=${true} />
-              </a>
-              ${allZaps.length > 1 ? html`<span> and ${allZaps.length - 1} others </span>` : ''}
-              zapped your note
-            </div>
-          </div>
-          <${EventComponent} key=${zappedId + props.event.id} id=${zappedId} />
+      <div class="msg-content" style="padding: 12px 0 0 0;" onClick=${(e) => messageClicked(e, zappedId)}>
+        <div style="display: flex; align-items: center; flex-basis: 100%; margin-left: 46px;">
+          <small class="zapped">
+            <i class="zap-btn"> ${lightningIcon} </i>
+            <a href=${userLink} style="margin-right: 5px;">
+              <${Name} pub=${zappingUser} userNameOnly=${true} />
+            </a>
+            ${allZaps.length > 1 ? html`<span> and ${allZaps.length - 1} others </span>` : ''}
+            zapped your note
+          </small>
         </div>
+        <${EventComponent} key=${zappedId + props.event.id} id=${zappedId} />
       </div>
     </div>
   `;

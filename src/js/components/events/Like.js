@@ -36,19 +36,17 @@ export default function Like(props) {
   const userLink = `/${Key.toNostrBech32Address(props.event.pubkey, 'npub')}`;
   return html`
     <div class="msg" key=${props.event.id}>
-      <div class="msg-content" onClick=${(e) => messageClicked(e, likedId)}>
-        <div>
-          <div style="display: flex; align-items: center;">
-            <i class="like-btn liked" style="margin-right: 15px;"> ${Icons.heartFull} </i>
-            <div>
-              <a href=${userLink} style="margin-right: 5px;">
-                <${Name} pub=${props.event.pubkey} userNameOnly=${true} />
-              </a>
-              ${allLikes.length > 1 && html` and ${allLikes.length - 1} others `} ${likeText}
-            </div>
-          </div>
-          <${EventComponent} key=${likedId + props.event.id} id=${likedId} />
+      <div class="msg-content" style="padding: 12px 0 0 0;" onClick=${(e) => messageClicked(e, likedId)}>
+        <div style="display: flex; align-items: center; flex-basis: 100%; margin-left: 46px;">
+          <small class="liked">
+            <i class="like-btn"> ${Icons.heartFull} </i>
+            <a href=${userLink} style="margin-right: 5px;">
+              <${Name} pub=${props.event.pubkey} userNameOnly=${true} />
+            </a>
+            ${allLikes.length > 1 && html` and ${allLikes.length - 1} others `} ${likeText}
+          </small>
         </div>
+        <${EventComponent} key=${likedId + props.event.id} id=${likedId} />
       </div>
     </div>
   `;

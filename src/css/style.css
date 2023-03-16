@@ -2131,6 +2131,24 @@ hr {
   margin-right: 10px;
 }
 
+.liked {
+  display: flex;
+}
+
+.liked svg {
+  width: 19px;
+  margin-right: 10px;
+}
+
+.zapped {
+  display: flex;
+}
+
+.zapped svg {
+  width: 19px;
+  margin-right: 10px;
+}
+
 small,
 .text-muted {
   font-size: 14px;
